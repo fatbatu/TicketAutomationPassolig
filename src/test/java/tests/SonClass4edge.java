@@ -123,7 +123,7 @@ public class SonClass4edge extends TestBaseCross {
         String handle1= driver.getWindowHandle();
 
      //   String dinamikXpath= "(//*[contains(text(),'"+hangiTakım+"')])[1]";
-      String  dinamikXpath= "(//*[contains(text(),'"+hangiTakım+"') and contains(text(),'Galatasaray')])[1]";
+      String  dinamikXpath= "//*[contains(text(),'"+hangiTakım+"') and contains(text(),'Galatasaray')]";
 
 
         JavascriptExecutor jse =(JavascriptExecutor) driver;
@@ -189,9 +189,8 @@ public class SonClass4edge extends TestBaseCross {
             try {
                 driver.manage().timeouts().implicitlyWait(Duration.ofMillis(200));
                 if (sayac2%6==0)  driver.manage().timeouts().implicitlyWait(Duration.ofMillis(4000));
-                satınAl= driver.findElement(By.xpath("//*[text()='SATINAL']"));
 
-             //   satınAl= driver.findElement(By.xpath("//*[text()='SATIN AL']"));
+                satınAl= driver.findElement(By.xpath("//*[text()='SATIN AL']"));
                // satınAl= driver.findElement(By.xpath("(//button[@class='red-btn'])[1]"));
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                 jse.executeScript("arguments[0].scrollIntoView();",satınAl);
@@ -388,9 +387,23 @@ public class SonClass4edge extends TestBaseCross {
         System.out.println("kategoriye giriş :"+kategoribaşı.format(DateTimeFormatter.ISO_LOCAL_TIME));
 
 
+        boolean sayac34=true;
 
-        if (kategori==null)
-            kategori= driver.findElement(By.xpath("(//select[@class='form-control ng-untouched ng-pristine ng-valid'])[2]"));
+
+        if (kategori==null){
+
+            while (sayac34==true){
+
+                try {
+                    kategori= driver.findElement(By.xpath("(//select[@class='form-control ng-untouched ng-pristine ng-valid'])[2]"));
+                sayac34=false;
+
+                } catch (Exception e) {
+                }
+
+            }
+
+        }
 
         selectKategori= new Select(kategori);
         List<WebElement> tamam;
