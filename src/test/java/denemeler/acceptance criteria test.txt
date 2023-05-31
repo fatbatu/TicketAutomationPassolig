@@ -1,0 +1,35 @@
+User storyler 3 bölümden oluşur. Bunlar;
+
+
+Kullanıcının hikaye tanımı (Value statement)
+Kabul kriterleri (Acceptance criterias)
+Bitti tanımı (Definition of done)
+
+yeşili locate ettiğinizde doğrulamış oluyorsunuz
+
+mail gidince gitmemesi
+admin çıkışında anasayfaya gitmemesi
+
+
+Arkadaşlar merhaba,
+Acceptance Criteria ve Test Case'lerimiz yazacağımız testlerin temeli olacak.
+Hepimizin doğru şekilde anlayıp yazdığımızdan emin olabilmek için bir kontrol mekanizmasına ihtiyacımız var.
+Biliyorsunuz birlikte olabildiğimiz vakit kısıtlı, hep birlikte hepsini kontrol edemeyeceğimiz için 3 ufak
+gruba ayrılıp mümkün mertebe birbirimizin yazdıklarını toplantı dışında okuyup dönüt vermemiz veya üzerine kısaca tartışmamız çok yararlı
+diye düşünüyorum.
+Bu yolla hem denetim mekanizması getirmiş oluruz hem de diğer arkadaşlarımızın yazdıklarını okurken kendi hatalarımızı farkedebiliriz.
+Ufak grubumuzun yazdıklarını okumak 15-20 dakikamızı alacaktır
+
+Google Sheets'teki OrnekCalisma adlı ortak şablona yazdıklarımızı işlemek yoluyla birbirimizin yazdıklarını görebiliriz
+
+
+
+takım üyeleri
+projenin ne hakkında olduğu
+yaptığınız çalışmalar
+brd niz full olmalı
+
+
+
+
+

@@ -18,7 +18,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
 
-public class SonClass4edge extends TestBaseCross {
+public class SonHal {
 
     static WebDriver driver;
     static Select selectKategori;
@@ -46,19 +46,19 @@ public class SonClass4edge extends TestBaseCross {
         String gidilecekLink= "https://www.passo.com.tr/tr/kategori/futbol-mac-biletleri/4615";
 
         baglantıyaGitveSatınAl(hangiTakım,gidilecekLink);
-      //  baglantıyaGitveSatınAlAlternatif();
+        //  baglantıyaGitveSatınAlAlternatif();
 
         String bonusCardTc= "26942514610";
         String bonusCardNo= "deneme";
 
-        öncelikliBiletEkranı(bonusCardTc,bonusCardNo,1);
+
 
         int ilkKategori=2;
         int sonKategori=1;
 
         kategoriDöngüsü(ilkKategori,sonKategori);
 
-        kisiSayisiSec(2);
+        kisiSayisiSec(1);
 
         blokVeKoltuk(ilkKategori,sonKategori);
     }
@@ -122,8 +122,8 @@ public class SonClass4edge extends TestBaseCross {
         driver.get(gidilecekLink);
         String handle1= driver.getWindowHandle();
 
-     //   String dinamikXpath= "(//*[contains(text(),'"+hangiTakım+"')])[1]";
-      String  dinamikXpath= "//*[contains(text(),'"+hangiTakım+"') and contains(text(),'Galatasaray')]";
+        //   String dinamikXpath= "(//*[contains(text(),'"+hangiTakım+"')])[1]";
+        String  dinamikXpath= "//*[contains(text(),'"+hangiTakım+"') and contains(text(),'Galatasaray')]";
 
 
         JavascriptExecutor jse =(JavascriptExecutor) driver;
@@ -193,7 +193,7 @@ public class SonClass4edge extends TestBaseCross {
                 if (sayac2%6==0)  driver.manage().timeouts().implicitlyWait(Duration.ofMillis(4000));
 
                 satınAl= driver.findElement(By.xpath("//*[text()='SATIN AL']"));
-               // satınAl= driver.findElement(By.xpath("(//button[@class='red-btn'])[1]"));
+                // satınAl= driver.findElement(By.xpath("(//button[@class='red-btn'])[1]"));
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                 jse.executeScript("arguments[0].scrollIntoView();",satınAl);
                 jse.executeScript("arguments[0].click();",satınAl);
@@ -230,7 +230,7 @@ public class SonClass4edge extends TestBaseCross {
 
             try {
                 driver.manage().timeouts().implicitlyWait(Duration.ofMillis(200));
-                 satınAl= driver.findElement(By.xpath("//*[text()='SATIN AL']"));
+                satınAl= driver.findElement(By.xpath("//*[text()='SATIN AL']"));
                 //satınAl= driver.findElement(By.xpath("(//button[@class='red-btn'])[1]"));
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                 jse.executeScript("arguments[0].scrollIntoView();",satınAl);
@@ -398,7 +398,7 @@ public class SonClass4edge extends TestBaseCross {
 
                 try {
                     kategori= driver.findElement(By.xpath("(//select[@class='form-control ng-untouched ng-pristine ng-valid'])[2]"));
-                sayac34=false;
+                    sayac34=false;
 
                 } catch (Exception e) {
                 }
@@ -553,69 +553,69 @@ public class SonClass4edge extends TestBaseCross {
 
 
             driver.manage().timeouts().implicitlyWait(Duration.ofMillis(200));
-                tamamblok= driver.findElements(By.xpath("//button[text()='Tamam']"));
-                driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000));
+            tamamblok= driver.findElements(By.xpath("//button[text()='Tamam']"));
+            driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000));
 
-                //BLOKTA YER YOKSA BURASI ÇALIŞACAK
-                if (tamamblok.size()>0){
-                    tamamblok.get(0).click();
+            //BLOKTA YER YOKSA BURASI ÇALIŞACAK
+            if (tamamblok.size()>0){
+                tamamblok.get(0).click();
+
+            }
+
+            //BLOKTA YER VARSA BURASI ÇALIŞACAK
+            else {
+
+                System.out.println("");
+                System.out.println(bloklar.get(i).getText()+" seçildi");
+
+                boolean bastik= true;
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+
+
+                while (bastik==true){
+
+                    //KOLTUK TUŞUNA HATA VERDİRMEDEN BASTIRMAYA ÇALIŞIYORUZ
+                    try {
+                        enIyiKoltuk= driver.findElement(By.xpath("//button[text()='En iyi koltuğu bul ']"));
+                        while(!enIyiKoltuk.isEnabled()){}
+                        enIyiKoltuk.click();
+                        bastik=false;
+                    } catch (Exception e) {
+                        System.out.println("Koltuğa basılamadı");
+
+                    }
 
                 }
 
-                //BLOKTA YER VARSA BURASI ÇALIŞACAK
+                driver.manage().timeouts().implicitlyWait(Duration.ofMillis(200));
+                tamamkoltuk= driver.findElements(By.xpath("//button[text()='Tamam']"));
+                driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000));
+
+                //Koltukta YER YOKSA BURASI ÇALIŞACAK
+                if (tamamkoltuk.size()>0){
+                    tamamkoltuk.get(0).click();
+                }
+
+                //koltukta YER VARSA BURASI ÇALIŞACAK
                 else {
 
-                    System.out.println("");
-                    System.out.println(bloklar.get(i).getText()+" seçildi");
-
-                    boolean bastik= true;
-                    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+                    System.out.println("Bilet başarıyla sepete eklendi");
 
 
-                    while (bastik==true){
+                }
 
-                        //KOLTUK TUŞUNA HATA VERDİRMEDEN BASTIRMAYA ÇALIŞIYORUZ
-                        try {
-                            enIyiKoltuk= driver.findElement(By.xpath("//button[text()='En iyi koltuğu bul ']"));
-                            while(!enIyiKoltuk.isEnabled()){}
-                            enIyiKoltuk.click();
-                            bastik=false;
-                        } catch (Exception e) {
-                            System.out.println("Koltuğa basılamadı");
-
-                        }
-
-                    }
-
-                    driver.manage().timeouts().implicitlyWait(Duration.ofMillis(200));
-                    tamamkoltuk= driver.findElements(By.xpath("//button[text()='Tamam']"));
-                    driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000));
-
-                    //Koltukta YER YOKSA BURASI ÇALIŞACAK
-                    if (tamamkoltuk.size()>0){
-                        tamamkoltuk.get(0).click();
-                    }
-
-                    //koltukta YER VARSA BURASI ÇALIŞACAK
-                    else {
-
-                        System.out.println("Bilet başarıyla sepete eklendi");
-
-
-                    }
-
-                    //SON BLOK koltuğunda DA YER YOKSA BURASI ÇALIŞACAK
-                    if (i== bloklar.size()-1 && tamamblok.size()>0 ){
-                        //dokunulmusKategoriDöngüsü(ilkKategori,sonKategori);
-                        //  blokVeKoltuk(ilkKategori,sonKategori);
-                        kategoriDöngüsü(ilkKategori,sonKategori);
-                        blokVeKoltuk(ilkKategori,sonKategori);
-                    }
+                //SON BLOK koltuğunda DA YER YOKSA BURASI ÇALIŞACAK
+                if (i== bloklar.size()-1 && tamamblok.size()>0 ){
+                    //dokunulmusKategoriDöngüsü(ilkKategori,sonKategori);
+                    //  blokVeKoltuk(ilkKategori,sonKategori);
+                    kategoriDöngüsü(ilkKategori,sonKategori);
+                    blokVeKoltuk(ilkKategori,sonKategori);
+                }
 
 
 
 
-                    break;
+                break;
             }
 
             //SON BLOKTA DA YER YOKSA BURASI ÇALIŞACAK
@@ -649,4 +649,5 @@ public class SonClass4edge extends TestBaseCross {
 
 
 }
+
 

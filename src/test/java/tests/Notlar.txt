@@ -19,3 +19,5 @@ yüklemelerden dolayı kaçabilecek tüm elementleri koru while try catchle
 ÖNCELİKLİ SATIŞ EKRANINDA BONUSLU OLAN ŞEKİNDE AYARLAMAMIŞIM
 
 ÖNCELİKLİ SATIŞ SAYFASINDAKİ BONUSCARD NO YOK TRY CATHC // yapıldı
+
+category slag
