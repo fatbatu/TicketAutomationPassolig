@@ -51,12 +51,12 @@ public class SonClass4edge extends TestBaseCross {
         String bonusCardTc= "26942514610";
         String bonusCardNo= "deneme";
 
-        öncelikliBiletEkranı(bonusCardTc,bonusCardNo,1); //FENERBAHÇE EKRANINDA SIKINTISIZ ÇALIŞIYOR vpn ile 5 saniye
+        öncelikliBiletEkranı(bonusCardTc,bonusCardNo,1);
 
         int ilkKategori=2;
         int sonKategori=1;
 
-        kategoriDöngüsü(ilkKategori,sonKategori); // ÜYELİK TİPİ KISMI EKSİK OLABİLİR
+        kategoriDöngüsü(ilkKategori,sonKategori);
 
         kisiSayisiSec(2);
 
@@ -180,13 +180,17 @@ public class SonClass4edge extends TestBaseCross {
 
         WebElement satınAl;
         int sayac1=0;
+        int sayac2=0;
         while (flag=true){
 
 
 
             try {
                 driver.manage().timeouts().implicitlyWait(Duration.ofMillis(200));
-                 satınAl= driver.findElement(By.xpath("//*[text()='SATIN AL']"));
+                if (sayac2%6==0)  driver.manage().timeouts().implicitlyWait(Duration.ofMillis(4000));
+                satınAl= driver.findElement(By.xpath("//*[text()='SATINAL']"));
+
+             //   satınAl= driver.findElement(By.xpath("//*[text()='SATIN AL']"));
                // satınAl= driver.findElement(By.xpath("(//button[@class='red-btn'])[1]"));
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                 jse.executeScript("arguments[0].scrollIntoView();",satınAl);
@@ -195,7 +199,13 @@ public class SonClass4edge extends TestBaseCross {
 
             } catch (Exception e) {
                 sayac1++;
+                sayac2++;
                 if(sayac1%20==0) System.out.println("Webelement bulunamadı");
+                System.out.println("Webelement bulunamadı");
+                driver.navigate().refresh();
+
+            } finally {
+                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
             }
 
@@ -251,21 +261,45 @@ public class SonClass4edge extends TestBaseCross {
         WebElement üyelikTipi;
         Select üyelikSelect;
         try {
+
+
             driver.manage().timeouts().implicitlyWait(Duration.ofMillis(200));
-            logo = driver.findElement(By.xpath("(//*[@class='priority-sale-select-item-title'])[2]"));
+            logo= driver.findElement(By.xpath("(//*[@class='priority-sale-select-item-title'])[2]"));
+            try {
+                logo = driver.findElement(By.xpath("//*[contains(text(),\"Bonus\") and @class='priority-sale-select-item-title']"));
+            } catch (Exception e) {
 
+            }
             driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000));
-            jse.executeScript("arguments[0].click();",logo);
-            // logo.click();
 
-            WebElement textBox1= driver.findElement
-                    (By.xpath("//input[ contains(@placeholder,'TC') or contains(@placeholder,'Tc') or contains(@placeholder,'kimlik') or contains(@placeholder,'Kimlik')]"));
-            textBox1.sendKeys(bonusluTc);
+            jse.executeScript("arguments[0].click();",logo);
+
+
+            boolean flag45=true;
+            while (flag45==true){
+
+                try {
+                    WebElement textBox1= driver.findElement(By.xpath("//input[contains(@placeholder,'TC') or contains(@placeholder,'Tc') or contains(@placeholder,'kimlik') or contains(@placeholder,'Kimlik')]"));
+                    textBox1.sendKeys(bonusluTc);
+                    flag45=false;
+                } catch (Exception e) {
+
+                }
+
+            }
+
+
 
             //   WebElement textBox2= driver.findElement(By.xpath("//input[contains(@placeholder,'öncelikli')]"));
-            WebElement textBox2= driver.findElement
-                    (By.xpath("//input[contains(@placeholder,'Kart') or contains(@placeholder,'Bonus') or contains(@placeholder,'Card') or contains(@placeholder,'BONUS') or contains(@placeholder,'kart')]"));
-            textBox2.sendKeys(bonusNo);
+           /*
+            try {
+                WebElement textBox2= driver.findElement
+                        (By.xpath("//input[contains(@placeholder,'Kart') or contains(@placeholder,'Bonus') or contains(@placeholder,'Card') or contains(@placeholder,'BONUS') or contains(@placeholder,'kart')]"));
+                textBox2.sendKeys(bonusNo);
+            } catch (Exception e) {
+
+            }
+            */
 
             WebElement devamButon;
 
@@ -290,6 +324,13 @@ public class SonClass4edge extends TestBaseCross {
                     devamFlag=false;
                 } catch (Exception e) {
                     if(sayac1%20==0) System.out.println("Webelement bulunamadı");
+                    try {
+                        driver.findElement(By.xpath("(//select[@class='form-control ng-untouched ng-pristine ng-valid'])[2]")).isDisplayed();
+
+                        break;
+                    } catch (Exception ex) {
+
+                    }
 
                 }
 
@@ -310,6 +351,15 @@ public class SonClass4edge extends TestBaseCross {
                 } catch (Exception ex) {
 
                 }
+
+            }
+
+            WebElement kimlikNO;
+
+            try {
+                kimlikNO= driver.findElement(By.xpath("//input[contains(@placeholder,'Kimlik')]"));
+                kimlikNO.sendKeys(bonusluTc);
+            } catch (Exception ex) {
 
             }
             System.out.println("Üyelik durumu seçildi");

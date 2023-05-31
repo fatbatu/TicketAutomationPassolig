@@ -24,11 +24,12 @@ public class Yada {
 
         driver.get("https://www.passo.com.tr/tr/giris");
 
-        String sifreXpath= "//*[contains(@placeholder,'Şifre') and (class=\"quick-input form-control mb-2 border-red ng-touched\")]";
+        String sifreXpath= "//*[contains(text(),\"Şifremi\") and @href=\"/tr/sifremiunuttum\" and contains(text(),\"fremi\")]";
 
         WebElement şifreButonu= driver.findElement(By.xpath(sifreXpath));
+        System.out.println(şifreButonu.getText());
 
-        şifreButonu.sendKeys("oldu");
+
 
 
 

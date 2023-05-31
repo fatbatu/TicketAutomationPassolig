@@ -14,3 +14,8 @@ fazla alternatif bir while içinde birden fazla try catch ve break
 maç aratma olacaksa xpath hem gs hem fb olacak şekilde olsun
 
 yüklemelerden dolayı kaçabilecek tüm elementleri koru while try catchle
+
+
+ÖNCELİKLİ SATIŞ EKRANINDA BONUSLU OLAN ŞEKİNDE AYARLAMAMIŞIM
+
+ÖNCELİKLİ SATIŞ SAYFASINDAKİ BONUSCARD NO YOK TRY CATHC // yapıldı
