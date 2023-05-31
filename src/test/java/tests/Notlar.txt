@@ -1,0 +1,16 @@
+1-Sayfa yenileme hızını düşün
+
+2-Sayfa girişlerine try catch while konabilir geç yüklenmesi açısından
+
+3-Öncelikli ödeme ekranı içindeki yazılar için birden
+fazla alternatif bir while içinde birden fazla try catch ve break
+
+4-Sayfa bir anda mı gelecek yoksa önce yakında butonu mu çıkacak?
+
+5-Birden fazla tarayıcı kullanmak hızı düşürecek mi
+
+6-Kategori sayfasında üyelik tipi seçilecek mi
+
+maç aratma olacaksa xpath hem gs hem fb olacak şekilde olsun
+
+yüklemelerden dolayı kaçabilecek tüm elementleri koru while try catchle

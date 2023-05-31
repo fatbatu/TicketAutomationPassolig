@@ -1,0 +1,20 @@
+stripe la ilgili problem
+
+
+
+Bazı gruplarda aşağıya doğru puanlar artmış, aşağıda 8-13 puanlar vs olmuş, dengeli dağılım olsun
+gerekirse team lead scrum master ayrı toplantı açsın dedi
+*projenin sunumunun 10 haziranda hazır olması gerek
+
+
+Babayiğit Hocanın ilettikleri
+Hatalarla ilgili
+*sitenin çalışmasını engelleyen bir bug olmaması gerek, sorun görmeniz halinde ekran görüntüsü alıp hocalara gönderelim
+*Ödemelerde ödeme onayı veriyor ama yönlendirmesi gereken sayfada problem varmış, üzerine çalışıyorlar
+*çok kişi yüklenince bazı hatalar olmaya başlamış
+
+Tarihler
+*acceptance criteria ve test caseleri 1 hazirana kadar tamamlayalım, framework kurulumu olacak ve testleri yazmaya başlayacağız
+*proje sunumu 10 haziran'da olduğu için projeyi o tarihe yetiştireceğiz
+
+*US 27 için not = sadece yazıların görünürlüğünü test etmeniz yeterli, sayfa içeriği zaten yok

@@ -1,4 +1,4 @@
-package utilities;
+package utilites;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +12,7 @@ import java.time.Duration;
 public class DriverCross {
 
     private static WebDriver driver;
-    private DriverCross(){
+    private DriverCross(){ //private i siliyom
 
     }
 
