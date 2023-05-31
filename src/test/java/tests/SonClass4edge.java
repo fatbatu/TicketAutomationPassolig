@@ -42,7 +42,7 @@ public class SonClass4edge extends TestBaseCross {
 
         girisYap(mailim,sifrem);
 
-        String hangiTakım="Eyüpspor";  //sadece şehir ismi girersen hata verir
+        String hangiTakım="Fenerbahçe";  //sadece şehir ismi girersen hata verir
         String gidilecekLink= "https://www.passo.com.tr/tr/kategori/futbol-mac-biletleri/4615";
 
         baglantıyaGitveSatınAl(hangiTakım,gidilecekLink);
@@ -122,7 +122,8 @@ public class SonClass4edge extends TestBaseCross {
         driver.get(gidilecekLink);
         String handle1= driver.getWindowHandle();
 
-        String dinamikXpath= "(//*[contains(text(),'"+hangiTakım+"')])[1]";
+     //   String dinamikXpath= "(//*[contains(text(),'"+hangiTakım+"')])[1]";
+      String  dinamikXpath= "(//*[contains(text(),'"+hangiTakım+"') and contains(text(),'Galatasaray')])[1]";
 
 
         JavascriptExecutor jse =(JavascriptExecutor) driver;
