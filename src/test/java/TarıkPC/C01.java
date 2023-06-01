@@ -1,4 +1,4 @@
-package SonDüzenleme;
+package TarıkPC;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
@@ -14,7 +14,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
 
-public class C02_deneme {
+//satın ala bastıktan sonra hesapbilgileri girilecek
+
+public class C01 {
 
     static WebDriver driver;
     static Select selectKategori;
@@ -32,19 +34,21 @@ public class C02_deneme {
         String mailim = "batuhanisik34@gmail.com";
         String sifrem = "Haydegidelum1";
 
-        girisYap(mailim, sifrem);
 
-        String hangiTakım = "Demirspor";  //sadece şehir ismi girersen hata verir
-        String hangiTakım2= "Başakşehir";
+
+        String hangiTakım = "Fenerbahçe";  //sadece şehir ismi girersen hata verir
+        String hangiTakım2= "Galatasaray";
         String gidilecekLink = "https://www.passo.com.tr/tr/kategori/futbol-mac-biletleri/4615";
 
         baglantıyaGitveSatınAl(hangiTakım, gidilecekLink,hangiTakım2);
 
+        girisYap(mailim,sifrem);
+
 
         //  baglantıyaGitveSatınAlAlternatif();
 
-        int ilkKategori = 4;
-        int sonKategori = 6;
+        int ilkKategori = 12;
+        int sonKategori = 13;
 
         kategoriDöngüsü(ilkKategori, sonKategori);
 
@@ -55,18 +59,22 @@ public class C02_deneme {
 
     public static void girisYap(String mailim, String sifrem) {
 
-        LocalTime time = LocalTime.now();
-        System.out.println(LocalTime.now().format(DateTimeFormatter.ISO_LOCAL_TIME));
-        WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         Actions actions = new Actions(driver);
+        boolean mailflag=true;
+        WebElement mailKutusu=null;
+        while (mailflag==true){
 
-        driver.get("https://www.passo.com.tr/tr/giris");
+            try {
+                mailKutusu = driver.findElement(By.xpath("/html/body/app-root/app-layout/app-login/section/div/div/div/div/div[2]/div/div/div[1]/div/quick-form/div/quick-input[1]/input"));
+                mailflag=false;
 
-        WebElement mailKutusu = driver.findElement(By.xpath("/html/body/app-root/app-layout/app-login/section/div/div/div/div/div[2]/div/div/div[1]/div/quick-form/div/quick-input[1]/input"));
+            } catch (Exception e) {
+
+            }
+
+        }
+
 
         mailKutusu.sendKeys(mailim + Keys.TAB + sifrem + Keys.TAB);
 
@@ -101,6 +109,13 @@ public class C02_deneme {
     }
 
     public static void baglantıyaGitveSatınAl(String hangiTakım, String gidilecekLink,String hangiTakım2){
+
+        LocalTime time = LocalTime.now();
+        System.out.println(LocalTime.now().format(DateTimeFormatter.ISO_LOCAL_TIME));
+        WebDriverManager.edgedriver().setup();
+        driver = new EdgeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         driver.get(gidilecekLink);
         String handle1= driver.getWindowHandle();
@@ -186,8 +201,7 @@ public class C02_deneme {
                 sayac1++;
                 sayac2++;
                 if(sayac1%20==0) System.out.println("Webelement bulunamadı");
-                System.out.println("Webelement bulunamadı, sayfa yenilendi");
-                System.out.println(driver.getCurrentUrl());
+                System.out.println("Webelement bulunamadı");
                 driver.navigate().refresh();
 
             } finally {
