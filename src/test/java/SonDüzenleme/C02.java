@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
 
-public class C01 {
+public class C02 {
 
     static WebDriver driver;
     static Select selectKategori;
@@ -24,7 +24,8 @@ public class C01 {
     static LocalTime start;
     static LocalTime end;
 
-    //KATEGORİ NUMARASI YüKSEKTEN DÜŞÜĞE
+    //KATEGORİ NUMARASI DÜŞÜKTEN YÜKSEĞE
+
     @Test
 
     public void test01() {
@@ -42,8 +43,8 @@ public class C01 {
 
         //  baglantıyaGitveSatınAlAlternatif();
 
-        int ilkKategori = 13;
-        int sonKategori = 12;
+        int ilkKategori = 12;
+        int sonKategori = 13;
 
         kategoriDöngüsü(ilkKategori, sonKategori);
 
@@ -263,16 +264,17 @@ public class C01 {
         boolean status= true;
         boolean tusCalismasi= true;
 
+
+
         System.out.println("Gezilecek Kategoriler");
-        for (int i = ilkKategori; i >sonKategori-1 ; i--) {
-            System.out.print(kategoriList.get(i).getText());
+        for (int i = ilkKategori; i <sonKategori+1 ; i++) {
+            System.out.println(kategoriList.get(i).getText());
 
         }
-        System.out.println("");
 
 
 
-        for (int i = ilkKategori; i >sonKategori-1 ; i--) {
+        for (int i = ilkKategori; i <sonKategori+1 ; i++) {
 
 
 

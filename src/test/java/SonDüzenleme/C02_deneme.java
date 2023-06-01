@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
 
-public class C01 {
+public class C02_deneme {
 
     static WebDriver driver;
     static Select selectKategori;
@@ -24,7 +24,8 @@ public class C01 {
     static LocalTime start;
     static LocalTime end;
 
-    //KATEGORİ NUMARASI YüKSEKTEN DÜŞÜĞE
+    //KATEGORİ NUMARASI DÜŞÜKTEN YÜKSEĞE
+
     @Test
 
     public void test01() {
@@ -33,8 +34,8 @@ public class C01 {
 
         girisYap(mailim, sifrem);
 
-        String hangiTakım = "Fenerbahçe";  //sadece şehir ismi girersen hata verir
-        String hangiTakım2= "Galatasaray";
+        String hangiTakım = "Demirspor";  //sadece şehir ismi girersen hata verir
+        String hangiTakım2= "Başakşehir";
         String gidilecekLink = "https://www.passo.com.tr/tr/kategori/futbol-mac-biletleri/4615";
 
         baglantıyaGitveSatınAl(hangiTakım, gidilecekLink,hangiTakım2);
@@ -42,8 +43,8 @@ public class C01 {
 
         //  baglantıyaGitveSatınAlAlternatif();
 
-        int ilkKategori = 13;
-        int sonKategori = 12;
+        int ilkKategori = 4;
+        int sonKategori = 6;
 
         kategoriDöngüsü(ilkKategori, sonKategori);
 
@@ -174,7 +175,8 @@ public class C01 {
                 driver.manage().timeouts().implicitlyWait(Duration.ofMillis(200));
                 if (sayac2%6==0)  driver.manage().timeouts().implicitlyWait(Duration.ofMillis(4000));
 
-                satınAl= driver.findElement(By.xpath("//*[text()='SATIN AL']"));
+                satınAl= driver.findElement(By.xpath("//*[text()='SATINAL']"));
+               // satınAl= driver.findElement(By.xpath("//*[text()='SATIN AL']"));
                 // satınAl= driver.findElement(By.xpath("(//button[@class='red-btn'])[1]"));
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
                 jse.executeScript("arguments[0].scrollIntoView();",satınAl);
@@ -185,7 +187,8 @@ public class C01 {
                 sayac1++;
                 sayac2++;
                 if(sayac1%20==0) System.out.println("Webelement bulunamadı");
-                System.out.println("Webelement bulunamadı");
+                System.out.println("Webelement bulunamadı, sayfa yenilendi");
+                System.out.println(driver.getCurrentUrl());
                 driver.navigate().refresh();
 
             } finally {
@@ -263,16 +266,17 @@ public class C01 {
         boolean status= true;
         boolean tusCalismasi= true;
 
+
+
         System.out.println("Gezilecek Kategoriler");
-        for (int i = ilkKategori; i >sonKategori-1 ; i--) {
-            System.out.print(kategoriList.get(i).getText());
+        for (int i = ilkKategori; i <sonKategori+1 ; i++) {
+            System.out.println(kategoriList.get(i).getText());
 
         }
-        System.out.println("");
 
 
 
-        for (int i = ilkKategori; i >sonKategori-1 ; i--) {
+        for (int i = ilkKategori; i <sonKategori+1 ; i++) {
 
 
 

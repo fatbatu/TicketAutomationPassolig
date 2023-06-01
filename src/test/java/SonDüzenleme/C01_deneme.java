@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
 
-public class C01 {
+public class C01_deneme {
 
     static WebDriver driver;
     static Select selectKategori;
