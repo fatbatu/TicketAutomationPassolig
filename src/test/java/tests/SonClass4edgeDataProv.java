@@ -43,8 +43,8 @@ public class SonClass4edgeDataProv extends TestBaseCross {
     @Test(dataProvider = "aranacaklarListesi")
 
     public void test01(String takım){
-        String mailim = "batuhanisik34@gmail.com";
-        String sifrem = "Haydegidelum1";
+        String mailim = "";
+        String sifrem = "";
 
         girisYap(mailim,sifrem);
 

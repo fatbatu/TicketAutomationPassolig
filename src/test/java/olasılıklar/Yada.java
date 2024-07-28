@@ -22,15 +22,19 @@ public class Yada {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-        driver.get("https://www.passo.com.tr/tr/giris");
+        driver.get("https://qa.tripandway.com/traveller/login");
 
-        String sifreXpath= "//*[contains(text(),\"Şifremi\") and @href=\"/tr/sifremiunuttum\" and contains(text(),\"fremi\")]";
+        String sifreXpath= "/html/body/div[7]/div/div/div/div/form/div/div[1]/input";
+       // sifreXpath="//*[@id=\"menu\"]/li[2]/a";
 
-        WebElement şifreButonu= driver.findElement(By.xpath(sifreXpath));
-        System.out.println(şifreButonu.getText());
+       WebElement sifreButonu= driver.findElement(By.xpath(sifreXpath));
 
 
-
+        System.out.println(sifreButonu.getAriaRole());
+        System.out.println(sifreButonu.getAccessibleName());
+        System.out.println(sifreButonu.getTagName());
+        sifreButonu.sendKeys("ana");
+        System.out.println(sifreButonu.getText());
 
 
     }

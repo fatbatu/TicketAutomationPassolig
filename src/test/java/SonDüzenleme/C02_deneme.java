@@ -29,8 +29,8 @@ public class C02_deneme {
     @Test
 
     public void test01() {
-        String mailim = "batuhanisik34@gmail.com";
-        String sifrem = "Haydegidelum1";
+        String mailim = "";
+        String sifrem = "";
 
         girisYap(mailim, sifrem);
 
@@ -111,7 +111,7 @@ public class C02_deneme {
 
         JavascriptExecutor jse =(JavascriptExecutor) driver;
         boolean sayfaCiktiMi=true;
-
+/*
         while (sayfaCiktiMi==true){
 
             WebElement fenerbahçeliEtkinlik= null;
@@ -149,6 +149,9 @@ public class C02_deneme {
             }
 
         }
+        */
+        while (!(driver.getCurrentUrl().equals("https://www.passo.com.tr/tr/kategori/futbol-mac-biletleri/4615"))){}
+
 
         Set<String> handles= driver.getWindowHandles();
         String handle2=null;

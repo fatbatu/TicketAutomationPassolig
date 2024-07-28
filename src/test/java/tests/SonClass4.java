@@ -34,8 +34,8 @@ public class SonClass4 extends TestBaseCross {
     @Test
 
     public void test01(){
-        String mailim = "batuhanisik34@gmail.com";
-        String sifrem = "Haydegidelum1";
+        String mailim = "";
+        String sifrem = "";
 
         girisYap(mailim,sifrem);
 

@@ -29,8 +29,8 @@ public class C02 {
     @Test
 
     public void test01() {
-        String mailim = "batuhanisik34@gmail.com";
-        String sifrem = "Haydegidelum1";
+        String mailim = "";
+        String sifrem = "";
 
         girisYap(mailim, sifrem);
 
@@ -48,7 +48,7 @@ public class C02 {
 
         kategoriDöngüsü(ilkKategori, sonKategori);
 
-        kisiSayisiSec(1);
+       // kisiSayisiSec(1);
 
         blokVeKoltuk(ilkKategori, sonKategori);
     }
@@ -323,6 +323,7 @@ public class C02 {
             else {
                 System.out.println("Kategori seçimi "+(LocalTime.now().getSecond()-kategoribaşı.getSecond())+" saniye sürdü"); //16
                 System.out.println(kategoriList.get(i).getText()+" seçildi");
+                kisiSayisiSec(1);
                 break;
 
 
@@ -408,14 +409,9 @@ public class C02 {
             tamamblok= driver.findElements(By.xpath("//button[text()='Tamam']"));
             driver.manage().timeouts().implicitlyWait(Duration.ofMillis(10000));
 
-            //BLOKTA YER YOKSA BURASI ÇALIŞACAK
-            if (tamamblok.size()>0){
-                tamamblok.get(0).click();
 
-            }
 
-            //BLOKTA YER VARSA BURASI ÇALIŞACAK
-            else {
+
 
                 System.out.println("");
                 System.out.println(bloklar.get(i).getText()+" seçildi");
@@ -460,22 +456,17 @@ public class C02 {
                     //dokunulmusKategoriDöngüsü(ilkKategori,sonKategori);
                     //  blokVeKoltuk(ilkKategori,sonKategori);
                     kategoriDöngüsü(ilkKategori,sonKategori);
+                    kisiSayisiSec(1);
                     blokVeKoltuk(ilkKategori,sonKategori);
                 }
 
                 break;
             }
 
-            //SON BLOKTA DA YER YOKSA BURASI ÇALIŞACAK
-            if (i== bloklar.size()-1 && tamamblok.size()>0 ){
-                //dokunulmusKategoriDöngüsü(ilkKategori,sonKategori);
-                //  blokVeKoltuk(ilkKategori,sonKategori);
-                kategoriDöngüsü(ilkKategori,sonKategori);
-                blokVeKoltuk(ilkKategori,sonKategori);
-            }
+
 
             System.out.println("BU YAZIYI ZATEN GÖRMEMEN LAZIM");
-        }
+
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         System.out.println("Bitiş : "+LocalTime.now().format(DateTimeFormatter.ISO_LOCAL_TIME));

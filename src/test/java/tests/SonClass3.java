@@ -28,8 +28,8 @@ public class SonClass3 {
 
     // FIND ELEMENTS ÇOK ZAMAN HARCIYOR
     public static void main(String[] args) {
-        String mailim = "batuhanisik34@gmail.com";
-        String sifrem = "Haydegidelum1";
+        String mailim = "";
+        String sifrem = "";
 
         girisYap(mailim,sifrem);
 
